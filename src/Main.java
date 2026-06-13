@@ -7,47 +7,25 @@ import com.cognizant.exercise3.Order;
 import com.cognizant.exercise3.Quicksort;
 import com.cognizant.exercise4.Employee;
 import com.cognizant.exercise5.Task;
-import com.cognizant.exercise5.TaskManagementSystem;
+import com.cognizant.exercise6.Book;
+import com.cognizant.exercise6.BookBinarySearch;
+import com.cognizant.exercise6.BookLinearSearch;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
+      Book[] books= {new Book(101, "HarryPotter", "JK Rowling"),
+              new Book(102, "Its ends with us", "Hollen coover"),
+              new Book(103,"blahblah","Nasima")
+          };
 
-        TaskManagementSystem tms =
-                new TaskManagementSystem();
+      Book search1= BookLinearSearch.search(books,"HarryPotter");
+      System.out.println(search1);
 
-        tms.addTask(
-                new Task(101,
-                        "Complete DSA Assignment",
-                        "Pending"));
+      Book search2= BookBinarySearch.search(books,"HarryPotter");
+      System.out.println(search2);
 
-        tms.addTask(
-                new Task(102,
-                        "Submit Report",
-                        "In Progress"));
-
-        tms.addTask(
-                new Task(103,
-                        "Attend Meeting",
-                        "Completed"));
-
-        System.out.println("All Tasks:");
-
-        tms.displayTasks();
-
-        System.out.println("\nSearching Task:");
-
-        System.out.println(
-                tms.search(102));
-
-        System.out.println("\nDeleting Task:");
-
-        tms.deleteTask(102);
-
-        System.out.println("\nTasks After Deletion:");
-
-        tms.displayTasks();
 
     }
 
