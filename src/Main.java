@@ -1,20 +1,45 @@
 import com.cognizant.exercise1.InventoryManager;
-import com.cognizant.exercise1.Product;
+import com.cognizant.exercise2.Product;
+import com.cognizant.exercise2.BinarySearch;
+import com.cognizant.exercise2.Linearsearch;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        InventoryManager manager=new InventoryManager();
-        Product product1=new Product(101,"Laptop",10,50000);
-        Product product2=new Product(102,"Mouse",5,350);
-        Product product3=new Product(103,"keyboard",15,1000);
-        manager.addProduct(product1);
-        manager.addProduct(product2);
-        manager.addProduct(product3);
 
-        manager.updateProduct(102,10,250);
-        manager.deleteProduct(103);
-        manager.display();
-    }
+        Product[] products = {
+
+                new Product(101, "Keyboard", "Electronics"),
+                new Product(102, "Laptop", "Electronics"),
+                new Product(103, "Monitor", "Electronics"),
+                new Product(104, "Mouse", "Electronics")
+        };
+
+        // Linear Search
+        Product linearResult =
+                Linearsearch.search(products, "Monitor");
+
+        System.out.println("Linear Search Result:");
+
+        if (linearResult != null) {
+            System.out.println(linearResult);
+        } else {
+            System.out.println("Product Not Found");
+        }
+
+        // Binary Search
+        Product binaryResult =
+                BinarySearch.search(products, "Monitor");
+
+        System.out.println("\nBinary Search Result:");
+
+        if (binaryResult != null) {
+            System.out.println(binaryResult);
+        } else {
+            System.out.println("Product Not Found");
+        }
+      }
+
+
 }
