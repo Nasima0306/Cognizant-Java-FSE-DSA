@@ -6,54 +6,49 @@ import com.cognizant.exercise3.Bubblesort;
 import com.cognizant.exercise3.Order;
 import com.cognizant.exercise3.Quicksort;
 import com.cognizant.exercise4.Employee;
-import com.cognizant.exercise4.EmployeeManagementSystem;
+import com.cognizant.exercise5.Task;
+import com.cognizant.exercise5.TaskManagementSystem;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
 
-        EmployeeManagementSystem ems =
-                new EmployeeManagementSystem(10);
+        TaskManagementSystem tms =
+                new TaskManagementSystem();
 
-        ems.addEmployee(
-                new Employee(101,
-                        "John",
-                        "Developer",
-                        50000));
+        tms.addTask(
+                new Task(101,
+                        "Complete DSA Assignment",
+                        "Pending"));
 
-        ems.addEmployee(
-                new Employee(102,
-                        "Alice",
-                        "Tester",
-                        40000));
+        tms.addTask(
+                new Task(102,
+                        "Submit Report",
+                        "In Progress"));
 
-        ems.addEmployee(
-                new Employee(103,
-                        "Bob",
-                        "Manager",
-                        70000));
+        tms.addTask(
+                new Task(103,
+                        "Attend Meeting",
+                        "Completed"));
 
-        System.out.println("\nAll Employees:");
+        System.out.println("All Tasks:");
 
-        ems.displayEmployees();
+        tms.displayTasks();
 
-        System.out.println("\nSearch Employee:");
+        System.out.println("\nSearching Task:");
 
-        Employee employee =
-                ems.search(102);
+        System.out.println(
+                tms.search(102));
 
-        System.out.println(employee);
+        System.out.println("\nDeleting Task:");
 
-        System.out.println("\nDelete Employee:");
+        tms.deleteTask(102);
 
-        ems.deleteEmployee(102);
+        System.out.println("\nTasks After Deletion:");
 
-        System.out.println("\nEmployees After Deletion:");
+        tms.displayTasks();
 
-        ems.displayEmployees();
     }
-
-
 
 }
