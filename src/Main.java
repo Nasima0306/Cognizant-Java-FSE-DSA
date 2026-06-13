@@ -2,42 +2,55 @@ import com.cognizant.exercise1.InventoryManager;
 import com.cognizant.exercise2.Product;
 import com.cognizant.exercise2.BinarySearch;
 import com.cognizant.exercise2.Linearsearch;
+import com.cognizant.exercise3.Bubblesort;
+import com.cognizant.exercise3.Order;
+import com.cognizant.exercise3.Quicksort;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
 
-        Product[] products = {
-
-                new Product(101, "Keyboard", "Electronics"),
-                new Product(102, "Laptop", "Electronics"),
-                new Product(103, "Monitor", "Electronics"),
-                new Product(104, "Mouse", "Electronics")
+        Order[] orders1 = {
+                new Order(101, "John", 4500),
+                new Order(102, "Alice", 2000),
+                new Order(103, "Bob", 7000),
+                new Order(104, "David", 3000)
         };
 
-        // Linear Search
-        Product linearResult =
-                Linearsearch.search(products, "Monitor");
+        Order[] orders2 = {
+                new Order(101, "John", 4500),
+                new Order(102, "Alice", 2000),
+                new Order(103, "Bob", 7000),
+                new Order(104, "David", 3000)
+        };
 
-        System.out.println("Linear Search Result:");
+        System.out.println("Before Bubble Sort");
 
-        if (linearResult != null) {
-            System.out.println(linearResult);
-        } else {
-            System.out.println("Product Not Found");
+        for (Order order : orders1) {
+            System.out.println(order);
         }
 
-        // Binary Search
-        Product binaryResult =
-                BinarySearch.search(products, "Monitor");
+        Bubblesort.sort(orders1);
 
-        System.out.println("\nBinary Search Result:");
+        System.out.println("\nAfter Bubble Sort");
 
-        if (binaryResult != null) {
-            System.out.println(binaryResult);
-        } else {
-            System.out.println("Product Not Found");
+        for (Order order : orders1) {
+            System.out.println(order);
+        }
+
+        System.out.println("\nBefore Quick Sort");
+
+        for (Order order : orders2) {
+            System.out.println(order);
+        }
+
+        Quicksort.sort(orders2, 0, orders2.length - 1);
+
+        System.out.println("\nAfter Quick Sort");
+
+        for (Order order : orders2) {
+            System.out.println(order);
         }
       }
 
